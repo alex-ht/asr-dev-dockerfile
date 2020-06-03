@@ -1,9 +1,8 @@
 FROM pytorch/pytorch:1.5-cuda10.1-cudnn7-devel
 
-RUN sed -i "s:archive.:tw.archive.:g" /etc/apt/sources.list && apt-get update
-
 # Install Kaldi
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
     flac build-essential git subversion automake autoconf \
     unzip sox gfortran libtool python2.7 wget cmake
 RUN ln -sf /bin/bash /bin/sh
