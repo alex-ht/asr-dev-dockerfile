@@ -18,3 +18,5 @@ RUN git clone --depth 1 --branch pybind11 https://github.com/kaldi-asr/kaldi.git
     make -j $(nproc) && \
     cd /opt/kaldi/src/pybind && \
     make
+
+WORKDIR /opt/kaldi
